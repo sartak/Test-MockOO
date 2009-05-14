@@ -17,9 +17,13 @@ do {
     class_has info => (
         metaclass => 'Collection::Hash',
         reader    => '_get_info',
-        writer    => '_set_info',
         isa       => 'HashRef',
-        default   => sub { {} },
+        default   => sub {
+            return {
+                foo => 1,
+                'bar/baz' => 2,
+            };
+        },
         provides  => {
             accessor => 'info',
             exists   => 'info_exists',
@@ -38,11 +42,6 @@ my $hive = Data::Hive->NEW({
     exists => 'info_exists',
     delete => 'info_delete',
   } ],
-});
-
-$obj->_set_info({
-  foo => 1,
-  'bar/baz' => 2,
 });
 
 is $hive->bar->baz, 2, 'GET';
