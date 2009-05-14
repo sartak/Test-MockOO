@@ -10,7 +10,7 @@ use ok 'Data::Hive::Store::Param';
 
 do {
     package Mock;
-    use Test::MockOO;
+    use Test::MockOO::Declare;
     use MooseX::ClassAttribute;
     use MooseX::AttributeHelpers;
 

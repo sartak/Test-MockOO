@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Test::More 'no_plan';
-use Test::MockOO ();
+use Test::MockOO;
 
 use ok 'Data::Hive';
 use ok 'Data::Hive::Store::Param';
