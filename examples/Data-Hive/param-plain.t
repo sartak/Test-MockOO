@@ -11,20 +11,20 @@ use ok 'Data::Hive::Store::Param';
 
 my ($class, $obj) = Test::MockOO->new;
 my $param = {};
-$class->add_method(
+$class->mock(
   info => sub {
     my (undef, $key, $val) = @_;
     $param->{$key} = $val if @_ > 2;
     return $param->{$key};
   },
 );
-$class->add_method(
+$class->mock(
   info_exists => sub {
     my (undef, $key) = @_;
     return exists $param->{$key};
   }
 );
-$class->add_method(
+$class->mock(
   info_delete => sub {
     my (undef, $key) = @_;
     return delete $param->{$key};
