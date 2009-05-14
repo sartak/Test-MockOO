@@ -43,6 +43,15 @@ sub set_always {
     $self->mock($name => sub { $value });
 }
 
+sub set_series {
+    my $self   = shift;
+    my $name   = shift;
+    my @values = @_;
+
+    $self->mock($name => sub {
+        return shift @values if @values;
+        return;
+    });
 }
 
 __PACKAGE__->meta->make_immutable;

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 4;
+use Test::More tests => 10;
 use Test::MockOO;
 
 my ($class, $object) = Test::MockOO->create;
@@ -21,4 +21,10 @@ do {
 
 is($object->counter, 1);
 is($object->counter, 2);
+
+$class->set_series(troll => qw(Tom Bert Bill));
+is($object->troll, 'Tom');
+is($object->troll, 'Bert');
+is($object->troll, 'Bill');
+is($object->troll, undef);
 
