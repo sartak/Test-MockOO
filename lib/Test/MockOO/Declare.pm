@@ -3,19 +3,27 @@ use Moose ();
 use Moose::Exporter;
 use Test::MockOO;
 
+my %delegates = (
+    mock   => 'mock',
+    true   => 'set_true',
+    false  => 'set_false',
+    always => 'set_always',
+    series => 'set_series',
+);
+
 Moose::Exporter->setup_import_methods(
-    with_caller => [qw(true false)],
+    with_caller => [keys %delegates],
     also => 'Moose',
 );
 
-sub true {
-    my $meta = Class::MOP::class_of(shift);
-    $meta->set_true(@_);
-}
+for my $name (keys %delegates) {
+    my $method = $delegates{$name};
 
-sub false {
-    my $meta = Class::MOP::class_of(shift);
-    $meta->set_false(@_);
+    no strict 'refs';
+    *{__PACKAGE__.'::'.$name} = sub {
+        my $meta = Class::MOP::class_of(shift);
+        $meta->$method(@_);
+    };
 }
 
 sub init_meta {
