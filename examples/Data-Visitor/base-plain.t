@@ -34,7 +34,7 @@ $class->mock( visit_hash_key => sub { $_[1] } );
 $class->mock( visit_hash => sub { shift->Data::Visitor::visit_hash( @_ )  } );
 $class->mock( visit_array => sub { shift->Data::Visitor::visit_array( @_ )  } );
 
-my $calls = $class->calls_of( $mock );
+my $calls = $class->calls_for( $mock );
 $calls->clear;
 $mock->visit( "foo" );
 $calls->called_ok( "visit_value" );

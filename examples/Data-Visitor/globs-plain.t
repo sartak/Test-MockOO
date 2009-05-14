@@ -29,7 +29,7 @@ is( ref $mapped, "ARRAY", "container" );
 is( ref ( $mapped->[0] ), "GLOB", "glob ref" );
 is( ${ *{$mapped->[0]}{SCALAR} }, 3, "value in glob's scalar slot");
 
-my $calls = $class->calls_of( $mock );
+my $calls = $class->calls_for( $mock );
 $calls->called_ok( "visit_array" );
 $calls->called_ok( "visit_glob" );
 $calls->called_ok( "visit_value" );

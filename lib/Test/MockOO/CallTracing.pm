@@ -7,7 +7,7 @@ use Test::MockOO::Call;
 
 my %calls;
 
-sub calls_of {
+sub calls_for {
     my $self     = shift;
     my $instance = shift;
 
@@ -25,7 +25,7 @@ around mock => sub {
             name      => $name,
             arguments => [@_],
         );
-        $self->calls_of($_[0])->_add_call($call);
+        $self->calls_for($_[0])->_add_call($call);
 
         goto $code;
     };
