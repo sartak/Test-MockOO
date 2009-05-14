@@ -37,5 +37,5 @@ for (1 .. 100) {
     $consistent++ if $object->observe eq $nature;
 }
 
-is($consistent, 100, "object's nature was consistent");
+is($consistent, 100, "object's nature was 100% consistent");
 
