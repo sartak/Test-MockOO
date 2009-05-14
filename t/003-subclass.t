@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 2;
+use Test::More tests => 5;
 use Test::MockOO;
 use Scalar::Util 'blessed';
 
@@ -11,4 +11,5 @@ isnt(blessed($object), 'Moose::Meta::Attribute', 'anonymous subclass');
 ok(!$object->has_trigger, 'no trigger yet');
 $class->set_true('has_trigger');
 ok($object->has_trigger, 'trigger faked out');
+ok(!$object->Moose::Meta::Attribute::has_trigger, 'original method is fine');
 
