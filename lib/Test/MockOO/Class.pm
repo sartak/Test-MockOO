@@ -25,6 +25,18 @@ sub set_false {
     return $self;
 }
 
+sub set_always {
+    my $self   = shift;
+    my $method = shift;
+    my $value  = shift;
+
+    confess "Too many values for set_always, which takes a scalar" if @_;
+
+    $self->add_method($method => sub { $value });
+
+    return $self;
+}
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
