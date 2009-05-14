@@ -1,5 +1,6 @@
 package Test::MockOO::Call;
 use Moose;
+use MooseX::AttributeHelpers;
 
 has name => (
     is       => 'ro',
@@ -8,9 +9,13 @@ has name => (
 );
 
 has arguments => (
-    is       => 'ro',
-    isa      => 'ArrayRef',
-    required => 1,
+    metaclass => 'Collection::List',
+    is        => 'ro',
+    isa       => 'ArrayRef',
+    required  => 1,
+    curries   => {
+        get => { invocant => [0] },
+    },
 );
 
 __PACKAGE__->meta->make_immutable;
