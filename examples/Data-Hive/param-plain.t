@@ -9,7 +9,7 @@ use Test::MockOO;
 use ok 'Data::Hive';
 use ok 'Data::Hive::Store::Param';
 
-my ($class, $obj) = Test::MockOO->new;
+my ($class, $obj) = Test::MockOO->create;
 my $param = {};
 $class->mock(
   info => sub {

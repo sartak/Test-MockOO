@@ -8,6 +8,6 @@ do {
     series amicae => qw(Sunny Kylie Bella);
 };
 
-my $mock = Test::MockOO->new('Mock');
+my $mock = Test::MockOO->create('Mock');
 ok($mock->somemethod);
 

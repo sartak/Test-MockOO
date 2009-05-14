@@ -32,7 +32,7 @@ do {
     );
 };
 
-my $obj = Test::MockOO->new('Mock');
+my $obj = Test::MockOO->create('Mock');
 
 my $hive = Data::Hive->NEW({
   store_class => 'Param',

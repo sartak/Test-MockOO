@@ -1,5 +1,5 @@
 use Test::MockOO;
-my ($class, $mock) = Test::MockOO->new();
+my ($class, $mock) = Test::MockOO->create();
 $class->set_true( 'somemethod' );
 ok( $mock->somemethod() );
 

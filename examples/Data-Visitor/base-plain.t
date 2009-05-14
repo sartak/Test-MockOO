@@ -26,7 +26,7 @@ can_ok( $o, "visit_hash" );
 can_ok( $o, "visit_array" );
 
 
-my ($class, $mock) = Test::MockOO->new( $o );
+my ($class, $mock) = Test::MockOO->create( $o );
 
 # cause logging
 $class->set_always( $_ => "magic" ) for qw/visit_value visit_object/;
