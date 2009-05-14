@@ -9,6 +9,7 @@ my %delegates = (
     false  => 'set_false',
     always => 'set_always',
     series => 'set_series',
+    list   => 'set_list',
 );
 
 Moose::Exporter->setup_import_methods(

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 10;
+use Test::More tests => 12;
 use Test::MockOO;
 
 my ($class, $object) = Test::MockOO->create;
@@ -27,4 +27,8 @@ is($object->troll, 'Tom');
 is($object->troll, 'Bert');
 is($object->troll, 'Bill');
 is($object->troll, undef);
+
+$class->set_list(trolls => qw(Tom Bert Bill));
+is($object->trolls, 3, 'scalar context!');
+is_deeply([$object->trolls], [qw(Tom Bert Bill)]);
 

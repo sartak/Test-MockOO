@@ -54,6 +54,16 @@ sub set_series {
     });
 }
 
+sub set_list {
+    my $self = shift;
+    my $name = shift;
+    my @list = @_;
+
+    # Test::MockObject makes a shallow copy of @list. Not sure why, so I'm not
+    # going to cargo cult it.
+    $self->mock($name => sub { @list });
+}
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
 

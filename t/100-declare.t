@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 11;
+use Test::More tests => 13;
 
 do {
     package Mock;
@@ -15,11 +15,13 @@ do {
     mock counter => sub { ++$i };
 
     series troll => qw(Tom Bert Bill);
+
+    list trolls => qw(Tom Bert Bill);
 };
 
 my $object = Test::MockOO->create('Mock');
 isa_ok($object, 'Mock');
-can_ok($object, qw(works does_not name counter troll));
+can_ok($object, qw(works does_not name counter troll trolls));
 
 ok($object->works, 'true works');
 ok(!$object->does_not, 'false works');
@@ -32,3 +34,7 @@ is($object->troll, 'Tom');
 is($object->troll, 'Bert');
 is($object->troll, 'Bill');
 is($object->troll, undef);
+
+is($object->trolls, 3, 'scalar context!');
+is_deeply([$object->trolls], [qw(Tom Bert Bill)]);
+
