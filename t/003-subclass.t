@@ -1,8 +1,12 @@
 use strict;
 use warnings;
-use Test::More tests => 5;
+use Test::More tests => 7;
 use Test::MockOO;
 use Scalar::Util 'blessed';
+
+my ($no_superclass) = Test::MockOO->create;
+is_deeply([$no_superclass->superclasses], [], 'no superclass by default');
+ok(!$no_superclass->name->can('new'), 'no constructor by default');
 
 my ($class, $object) = Test::MockOO->create('Moose::Meta::Attribute');
 isa_ok($object, 'Moose::Meta::Attribute');
