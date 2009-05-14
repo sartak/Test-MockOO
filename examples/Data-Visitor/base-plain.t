@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Test::More tests => 32;
-use Test::MockObject;
+use Test::MockOO;
 
 my $m;
 use ok $m = "Data::Visitor";
