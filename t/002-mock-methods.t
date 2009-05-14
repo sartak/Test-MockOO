@@ -14,3 +14,11 @@ ok(!$object->false, 'false');
 $class->set_always(name => 'Leto');
 is($object->name, 'Leto');
 
+do {
+    my $i = 0;
+    $class->mock(counter => sub { ++$i });
+};
+
+is($object->counter, 1);
+is($object->counter, 2);
+
