@@ -11,8 +11,6 @@ sub calls_for {
     my $self     = shift;
     my $instance = shift;
 
-    # FIXME: new(instance => $instance) doesn't do anything, I think?
-    # should just be new()?
     return $calls{refaddr $instance} ||= Test::MockOO::Calls->new(instance => $instance);
 }
 

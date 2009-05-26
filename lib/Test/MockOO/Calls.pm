@@ -4,6 +4,11 @@ use MooseX::AttributeHelpers;
 
 use Test::MockOO::Call;
 
+has instance => (
+    is  => 'ro',
+    isa => 'Object',
+);
+
 has calls => (
     metaclass => 'Collection::Array',
     isa       => 'ArrayRef[Test::MockOO::Call]',
