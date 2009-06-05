@@ -5,6 +5,8 @@ use Scalar::Util 'blessed';
 
 use Test::MockOO::Class;
 
+our $VERSION = '0.01';
+
 sub create {
     my $self    = shift;
     my $genitor = shift;
