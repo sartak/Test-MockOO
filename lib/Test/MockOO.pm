@@ -180,9 +180,9 @@ If you've lost your meta class object, you can recover it thusly:
 
 Quite possibly, please report them.
 
-=head1 AUTHOR and CONTRIBUTORs
+=head1 AUTHORS
 
-Shawn (sartak) Moore
+Shawn M Moore, C<sartak@gmail.com>
 
 Daniel (eqhmcow) Sterling
 
