@@ -58,10 +58,10 @@ Test::MockOO - An OO mocking framework built on Moose
 
 =head1 SYNOPSIS
 
-  use Test::MockOO;
-  my ($meta_mock, $mock) = Test::MockOO->create();
-  $meta_mock->set_true( 'somemethod' );
-  ok( $mock->somemethod() );
+    use Test::MockOO;
+    my ($meta_mock, $mock) = Test::MockOO->create();
+    $meta_mock->set_true( 'somemethod' );
+    ok( $mock->somemethod() );
 
 =head1 DESCRIPTION
 
@@ -123,24 +123,24 @@ anonyous class. In scalar context, returns just the new instance.
 
 If no object or class name is given, an empty anonymous class is created:
 
-  my ($meta_mock, $mock) = Test::MockOO->create();
-  # $mock is an instance of an empty anonymous class. $meta_mock is the meta
-  # class object for this new anonymous class.
+    my ($meta_mock, $mock) = Test::MockOO->create();
+    # $mock is an instance of an empty anonymous class. $meta_mock is the meta
+    # class object for this new anonymous class.
 
 If an existing mock object or its meta class object is given, the existing
 meta class is re-used (a new meta class is not created):
 
-  ($meta_mock, $new_mock) = Test::MockOO->create($mock);
-  # $new_mock is a new instance of the same class as $mock. $meta_mock is the
-  # existing meta class object.
+    ($meta_mock, $new_mock) = Test::MockOO->create($mock);
+    # $new_mock is a new instance of the same class as $mock. $meta_mock is the
+    # existing meta class object.
 
 Otherwise, a new anonymous class that inherits from the given class is
 created. In the case of an object, the anonymous class will inherit from the
 class the object is blessed into:
 
-  ($meta_mock, $mock) = Test::MockOO->create('MyClass');
-  # $mock is a new instance of a new anonymous class that inherits from
-  # MyClass. $meta_mock is the meta class object for this new anonymous class.
+    ($meta_mock, $mock) = Test::MockOO->create('MyClass');
+    # $mock is a new instance of a new anonymous class that inherits from
+    # MyClass. $meta_mock is the meta class object for this new anonymous class.
 
 The meta class object is a L<Test::MockOO::Class> object. To add mock methods
 to your mock object, use the L<Test::MockOO::Class> meta object's mock
@@ -148,7 +148,7 @@ creation methods. See L<Test::MockOO::Class> for details.
 
 If you've lost your meta class object, you can recover it thusly:
 
-  $meta_mock = Class::MOP::class_of($mock);
+    $meta_mock = Class::MOP::class_of($mock);
 
 =back
 
